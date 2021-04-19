@@ -10,7 +10,6 @@ import ru.whitegray.actions.ProductRepository;
 import ru.whitegray.products.Product;
 
 @Controller
-@RequestMapping("/")
 public class ProductController {
 
     private ProductRepository productRepository;
@@ -19,13 +18,13 @@ public class ProductController {
         this.productRepository = productRepository;
     }
 
-    @GetMapping("ProductList")
+    @GetMapping("/ProductList")
         public String product_list(Model model) {
             model.addAttribute("products", productRepository.getProducts());
             return "product_list";
         }
 
-    @GetMapping("ProductID{id}")
+    @GetMapping("/ProductID={id}")
     public String product_id(Model model, @PathVariable("id") int id) {
         model.addAttribute("product", productRepository.getProduct(id));
         return "product_id";

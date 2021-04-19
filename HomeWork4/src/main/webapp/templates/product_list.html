@@ -6,8 +6,18 @@
     <title>product_list</title>
 </head>
 <body>
-<div th:each="product : ${products}">
-    <a th:href=""@{/ProductID{id}(id=${product.getIg()})}" th:text="${product.getName()}">prod</a>
-</div>
+<br><br><br><br><br><br><br>
+    <table align=center border="7">
+        <tr>
+            <th>id</th>
+            <th>name</th>
+            <th>price</th>
+        </tr>
+        <tr th:each="product : ${products}">
+            <td th:text="${product.getId()}" />
+            <td th:text="${product.getName()}" />
+            <td th:text="${product.getPrice()}" />
+        </tr>
+    </table>
 </body>
 </html>
