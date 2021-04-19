@@ -11,6 +11,7 @@ import java.util.List;
 public class ProductRepository {
     private static int ID;
     private List<Product> products;
+
     {
         products = new ArrayList<>();
 
@@ -27,7 +28,7 @@ public class ProductRepository {
     }
 
     public Product getProduct(int id) {
-        return products.stream().filter (product -> product.getId() == id).findAny().orElse(null);
+        return products.stream().filter(product -> product.getId() == id).findAny().orElse(null);
     }
 
 

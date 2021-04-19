@@ -1,10 +1,5 @@
 package ru.whitegray.products;
 
-import org.springframework.stereotype.Component;
-
-import java.util.Objects;
-
-
 public class Product {
     private int id;
     private String name;
