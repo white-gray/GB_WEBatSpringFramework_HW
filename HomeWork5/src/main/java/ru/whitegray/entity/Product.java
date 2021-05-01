@@ -9,15 +9,16 @@ import javax.persistence.*;
 @Entity
 @Table(name = "products")
 public class Product {
+    @javax.persistence.Id
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="id")
+    @Column(name="id", insertable=true, updatable=true, unique=true, nullable=false)
     private Long id;
 
-    @Column(name="name")
+    @Column(name="name", length=255)
     private String name;
 
-    @Column(name="price")
+    @Column(name="price", precision=2)
     private float price;
 
     public Product(Long id, String name, float price) {
@@ -25,6 +26,8 @@ public class Product {
         this.name = name;
         this.price = price;
     }
+
+    public Product() {}
 
     public Long getId() {
         return id;
@@ -48,5 +51,10 @@ public class Product {
 
     public void setPrice(float price) {
         this.price = price;
+    }
+
+    public String toString () {
+        System.out.println("\tid: " + id+"\t\tname= "+name+"\t\tprice="+price);
+        return null;
     }
 }
