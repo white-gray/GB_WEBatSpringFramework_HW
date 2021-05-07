@@ -21,8 +21,7 @@ public class Product {
     @Column(name="price", precision=2)
     private float price;
 
-    public Product(Long id, String name, float price) {
-        this.id = id;
+    public Product(String name, float price) {
         this.name = name;
         this.price = price;
     }
