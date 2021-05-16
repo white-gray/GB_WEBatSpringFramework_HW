@@ -1,6 +1,7 @@
 package ru.whitegray.entity;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "products")
@@ -16,9 +17,13 @@ public class Product {
     @Column(name="price", precision=2)
     private float price;
 
-    public Product(String name, float price) {
+    @Column(name="quantity")
+    private int quantity;
+
+    public Product(String name, float price, int quantity) {
         this.name = name;
         this.price = price;
+        this.quantity = quantity;
     }
 
     public Product() {}
@@ -47,7 +52,33 @@ public class Product {
         this.price = price;
     }
 
-    public String toString () {
-        return "\tid: " + id+"\t\tname= "+name+"\t\tprice="+price;
+    public int getQuantity() {
+        return quantity;
     }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+
+
+    @ManyToMany
+    @JoinTable(
+            name = "cart",
+            joinColumns = @JoinColumn(name = "product_id"),
+            inverseJoinColumns = @JoinColumn(name = "buyer_id")
+
+    )
+    private List<Buyer> buyerListList;
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "id=" + id +
+                ", name='" + name +
+                ", price=" + price +
+                ", quantity=" + quantity +
+                '}';
+    }
+
 }

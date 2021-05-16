@@ -10,16 +10,16 @@ import java.util.List;
 
 public interface ProductDao extends JpaRepository <Product, Long> {
 
-//    Product findFirstByName(String name);
-//
-//    @Query("select p from Product p where p.cost < :cost")
-//    List<Product> findCheaperProducts(float cost);
-//
-//    @Transactional
-//    void deleteByCost(float cost);
+  Product findFirstByName(String name);
 
-//    @Modifying
-//    @Transactional
-//    @Query("update Product p set p.cost = :cost where p.cost = :oldCost")
-//    void updateCoast(float cost, float oldCost);
+//  @Query("select p from Product p where p.price < :price")
+//  List<Product> findCheaperProducts(float price);
+//
+//  @Transactional
+//  void deleteByCost(float price);
+
+//  @Modifying
+//  @Transactional
+//  @Query("update Product p set p.price = :price where p.price = :oldPrice")
+//  void updateCoast(float cost, float oldCost);
 }

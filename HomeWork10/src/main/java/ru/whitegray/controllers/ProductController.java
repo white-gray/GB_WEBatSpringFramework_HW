@@ -1,12 +1,14 @@
 package ru.whitegray.controllers;
 
+import ru.whitegray.dao.ProductDao;
+import ru.whitegray.entity.Buyer;
+import ru.whitegray.entity.Cart;
+import ru.whitegray.entity.Product;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import ru.whitegray.dao.ProductDao;
-import ru.whitegray.entity.Product;
 
 import java.util.Date;
 
@@ -32,12 +34,14 @@ public class ProductController {
         model.addAttribute("previousPage", products.getPageable().hasPrevious() ? pageNumber : null);
         model.addAttribute("nextPage", products.getTotalPages() > pageNumber + 1 ? pageNumber + 2 : null);
         model.addAttribute("date", new Date());
-        model.addAttribute("user", "Test user");
+        model.addAttribute("user", "Алексей");
         model.addAttribute("product", new Product());
+        model.addAttribute("buyer", new Buyer());
+        model.addAttribute("cart", new Cart());
         return "products";
     }
 
-    @DeleteMapping("delete/{id}")
+    @GetMapping("delete/{id}")
     public String removeProduct(@PathVariable Long id) {
         productDao.deleteById(id);
         return "redirect:/product";

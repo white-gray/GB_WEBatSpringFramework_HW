@@ -12,10 +12,10 @@
     </parent>
 
     <groupId>ru.whitegray</groupId>
-    <artifactId>HomeWork8</artifactId>
+    <artifactId>HomeWork9</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>HomeWork8</name>
-    <description>tasks for HomeWork8</description>
+    <name>HomeWork9</name>
+    <description>tasks for HomeWork9</description>
     <properties>
         <java.version>11</java.version>
     </properties>
