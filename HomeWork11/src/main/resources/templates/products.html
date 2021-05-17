@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Список продуктов</title>
+    <link rel="stylesheet" href="../static/style.css" th:href="@{/style.css}">
+</head>
+<body>
+<div class="container">
+    <th:block th:insert="~{_template :: header}"/>
+    <div class="header">В магазине</div>
+    <div class="outer header">
+        <div class="inner">id</div>
+        <div class="inner item">name</div>
+        <div class="inner item">price</div>
+        <div class="inner item">quantity</div>
+        <div class="inner item">add to cart</div>
+        <div class="inner item">del from cart</div>
+        <div class="inner">del from shop</div>
+    </div>
+    <div class="outer" th:each="product: ${products}">
+        <div class="inner" th:text="${product.id}">id</div>
+        <div class="inner item" th:text="${product.name}">name</div>
+        <div class="inner item" th:text="${product.price}">price</div>
+        <div class="inner item" th:text="${product.quantity}">quantity</div>
+        <div class="inner btn">
+            <a th:text="' add to cart '" th:href="@{/cart/delete/{id}(id=${product.id})}"></a>
+        </div>
+        <div class="inner btn">
+            <a th:text="' del from cart '" th:href="@{/product/delete/{id}(id=${product.id})}"></a>
+        </div>
+        <div class="inner btn">
+            <a th:text="' del from shop '" th:href="@{/product/delete/{id}(id=${product.id})}"></a>
+        </div>
+    </div>
+    <div>
+        <div align="left:30px"><a th:if="${previousPage != null}" th:href="@{/product/{pageId} (pageId=${previousPage})}"
+           th:text="'< предыдущая'+${previousPage}"/></div>
+       <div align="center"> <span th:text="'страница '${currentPage}"/></div>
+        <div align="right:'-30px'"><a th:if="${nextPage != null}" th:href="@{/product/{pageId} (pageId=${nextPage})}" th:text="'следующая '${nextPage}+' >'"/></div>
+    </div>
+    <div class="form">
+        <form action="#" th:action="@{/product/add}" th:object="${product}" method="post">
+            <input type="text" value="Название" th:field="*{name}"/>
+            <input type="text" value="Цена" th:field="*{price}"/>
+            <input type="text" value="Количество" th:field="*{quantity}"/>
+            <input type="submit" value="Добавить">
+        </form>
+    </div>
+    <div>
+
+    </div>
+    <th:block th:insert="~{_template :: footer}"/>
+</div>
+</body>
+</html>
