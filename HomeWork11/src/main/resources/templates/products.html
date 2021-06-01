@@ -3,9 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Список продуктов</title>
+	 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link rel="stylesheet" href="../static/style.css" th:href="@{/style.css}">
 </head>
 <body>
+<th:block th:insert="~{_template :: menu}"/>
 <div class="container">
     <th:block th:insert="~{_template :: header}"/>
     <div class="header">В магазине</div>
@@ -36,8 +38,8 @@
     <div>
         <div align="left:30px"><a th:if="${previousPage != null}" th:href="@{/product/{pageId} (pageId=${previousPage})}"
            th:text="'< предыдущая'+${previousPage}"/></div>
-       <div align="center"> <span th:text="'страница '${currentPage}"/></div>
-        <div align="right:'-30px'"><a th:if="${nextPage != null}" th:href="@{/product/{pageId} (pageId=${nextPage})}" th:text="'следующая '${nextPage}+' >'"/></div>
+<!--       <div align="center"> <span th:text="'страница '${currentPage}"/></div>-->
+<!--        <div align="right:'-30px'"><a th:if="${nextPage != null}" th:href="@{/product/{pageId} (pageId=${nextPage})}" th:text="'следующая '${nextPage}+' >'"/></div>-->
     </div>
     <div class="form">
         <form action="#" th:action="@{/product/add}" th:object="${product}" method="post">

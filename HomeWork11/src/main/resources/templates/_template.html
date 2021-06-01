@@ -1,7 +1,26 @@
+<div id="menu" xmlns:th="http://www.thymeleaf.org" th:fragment="menu">
+ <sec:authorize access="isAuthenticated()">
+    <ul class="outer header">
+        <li class="inner"><a href='/product'>Products</a></li>
+        <li class="inner"><a href='/cart'>Cart</a></li>
+        <li class="inner"><a href='/users'>Users</a></li>
+        <li class="inner"><a href='/logout'>Выйти</a></li>		
+    </ul>
+</sec:authorize>
+ <sec:authorize access="!isAuthenticated()">
+    <ul class="outer header">
+        <li class="inner"><a href='/login'>Вход</a></li>		
+        <li class="inner"><a href='/registration'>Регистрация</a></li>		
+    </ul>
+</sec:authorize>
+
+</div>
+
 <div id="header" xmlns:th="http://www.thymeleaf.org" th:fragment="header">
     <div>
         <h1 class="title" th:text="#{welcome.message (${user})}">Hello!</h1>
     </div>
+
 </div>
 <div id="footer" xmlns:th="http://www.thymeleaf.org" th:fragment="footer">
     <h4 class="title" th:text="#{time.message (${{date}})}">Время:</h4>
