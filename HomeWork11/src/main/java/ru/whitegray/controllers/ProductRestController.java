@@ -34,7 +34,7 @@ public class ProductRestController {
     }
 
 
-    @DeleteMapping("/{id}")
+        @DeleteMapping("/{id}")
     public void delete(@PathVariable Long id) {
         productDao.deleteById(id);
     }

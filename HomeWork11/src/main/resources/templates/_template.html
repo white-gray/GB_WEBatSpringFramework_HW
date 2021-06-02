@@ -1,4 +1,15 @@
-<div id="menu" xmlns:th="http://www.thymeleaf.org" th:fragment="menu">
+<html xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<div id="menu" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" xmlns:th="http://www.thymeleaf.org" th:fragment="menu">
+
+<head>
+    <meta charset="UTF-8">
+	 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="../static/style.css" th:href="@{/style.css}">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"/>
+    
+</head>
  <sec:authorize access="isAuthenticated()">
     <ul class="outer header">
         <li class="inner"><a href='/product'>Products</a></li>
@@ -13,6 +24,22 @@
         <li class="inner"><a href='/registration'>Регистрация</a></li>		
     </ul>
 </sec:authorize>
+
+</div>
+<div id="menu1" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" xmlns:th="http://www.thymeleaf.org" th:fragment="menu1">
+    <ul class="outer header">
+        <li class="inner"><a href='/product'>Products</a></li>
+        <li class="inner"><a href='/cart'>Cart</a></li>
+        <li class="inner"><a href='/users'>Users</a></li>
+        <li class="inner"><a href='/logout'>Выйти</a></li>		
+    </ul>
+</div>
+
+<div id="menu2" xmlns:th="http://www.thymeleaf.org" th:fragment="menu2">
+    <ul class="outer header">
+        <li class="inner"><a href='/login'>Вход</a></li>		
+        <li class="inner"><a href='/registration'>Регистрация</a></li>		
+    </ul>
 
 </div>
 

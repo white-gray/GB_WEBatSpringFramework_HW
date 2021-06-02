@@ -12,20 +12,11 @@
 <body>
 <th:block th:insert="~{_template :: menu1}"/>
 <th:block th:insert="~{_template :: menu2}"/>
-<sec:authorize access="isAuthenticated()">
+<sec:authorize access="!isAuthenticated()">
   <% response.sendRedirect("/"); %>
 </sec:authorize>
 <div>
-  <form method="POST" action="/login">
-    <h2>Вход в систему</h2>
-    <div>
-      <input name="username" type="text" placeholder="Username"
-             autofocus="true"/>
-      <input name="password" type="password" placeholder="Password"/>
-      <button type="submit">Log In</button>
-      <h4><a href="/registration">Зарегистрироваться</a></h4>
-    </div>
-  </form>
+    <h1 text-align="center">It's error page!</h1>
 </div>
 </body>
 </html>

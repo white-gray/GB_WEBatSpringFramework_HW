@@ -1,0 +1,23 @@
+﻿/admin
+	/gt/{userId}
+	
+cart
+	"delete/{id}
+	
+/v1/cart
+	/all
+	"/{id}
+	/delete/{id}
+	
+product
+	"", "/{pageId}"
+	delete/{id}
+	add
+	
+/v1/product
+	/all
+	/{id}
+	/{name}/{price}/{quantiry}
+	/{id}
+	
+/registration

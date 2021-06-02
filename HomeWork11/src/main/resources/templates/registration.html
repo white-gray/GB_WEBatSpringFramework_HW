@@ -1,16 +1,26 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Регистрация</title>
+    <title>Р РµРіРёСЃС‚СЂР°С†РёСЏ</title>
 	 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <link rel="stylesheet" href="../static/style.css" th:href="@{/style.css}">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="../style.css">
+    <link rel="stylesheet" type="text/css" href="../static/style.css">
+    
 </head>
 <body>
-<th:block th:insert="~{_template :: menu}"/>
+
+ <sec:authorize access="isAuthenticated()">
+ <th:block th:insert="~{_template :: menu1}"/>
+</sec:authorize>
+ <sec:authorize access="!isAuthenticated()">
+ <th:block th:insert="~{_template :: menu2}"/>
+</sec:authorize>
 <div>
   <form:form method="POST" modelAttribute="userForm">
-    <h2>Регистрация</h2>
+    <h2>Р РµРіРёСЃС‚СЂР°С†РёСЏ</h2>
     <div>
       <form:input type="text" path="username" placeholder="Username"
                   autofocus="true"></form:input>
@@ -26,9 +36,9 @@
       <form:errors path="password"></form:errors>
         ${passwordError}
     </div>
-    <button type="submit">Зарегистрироваться</button>
+    <button type="submit">Р—Р°СЂРµРіРёСЃС‚СЂРёСЂРѕРІР°С‚СЊСЃСЏ</button>
   </form:form>
-  <a href="/">Главная</a>
+  <a href="/">Р“Р»Р°РІРЅР°СЏ</a>
 </div>
 </body>
 </html>
