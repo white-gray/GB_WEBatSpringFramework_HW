@@ -1,16 +1,12 @@
 ﻿<!DOCTYPE html>
-<html lang="en" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
-    <title>Log in with your account</title>
+    <title>BeginPafe</title>
 	 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link rel="stylesheet" type="text/css" href="../static/style.css" th:href="@{/style.css}">
-    <link rel="stylesheet" type="text/css" href="../style.css" th:href="@{/style.css}">
-    <link rel="stylesheet" type="text/css" href="style.css" th:href="@{/style.css}">
 </head>
 <body>
-<!--<th:block th:insert="~{_template :: menu}"/>-->
 <sec:authorize access="!isAuthenticated()">
 <th:block th:insert="~{_template :: menu1}"/>
 </sec:authorize>
@@ -21,7 +17,7 @@
   <% response.sendRedirect("/"); %>
 </sec:authorize>
 <div>
-    <h1 text-align="center">It's error page!</h1>
+    <h1 text-align="center">It's begin!</h1>
 </div>
 </body>
 </html>

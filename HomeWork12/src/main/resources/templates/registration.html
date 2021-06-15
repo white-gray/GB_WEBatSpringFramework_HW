@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Регистрация</title>
+	 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" type="text/css" href="../static/style.css" th:href="@{/style.css}">
+    
+</head>
+<body>
+<sec:authorize access="!isAuthenticated()">
+<th:block th:insert="~{_template :: menu1}"/>
+</sec:authorize>
+<sec:authorize access="!isAuthenticated()">
+<th:block th:insert="~{_template :: menu2}"/>
+</sec:authorize>
+<div>
+  <h2>Регистрация</h2>
+  <form action="#" th:action="@{/registration}" th:object="${userForm}" method="post">
+    <table>
+      <tr>
+        <td>User Name</td>
+        <td><input type="text" th:field="*{username}" /></td>
+        <td>
+          <span th:if="${#fields.hasErrors('username')}" th:errors="*{username}">..</span>
+        </td>
+      </tr>
+      <tr>
+        <td>Password</td>
+        <td><input type="password" th:field="*{password}" /> </td>
+        <td>
+          <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}">..</span>
+        </td>
+      </tr>
+      <tr>
+        <td>Confirm</td>
+        <td><input type="password" th:field="*{passwordConfirm}" /> </td>
+        <td>
+          <span th:if="${#fields.hasErrors('passwordConfirm')}" th:errors="*{passwordConfirm}">..</span>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="3"><button type="submit">Зарегистрироваться</button></td>
+      </tr>
+    </table>
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>List of users</title>
+	 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <link rel="stylesheet" type="text/css" href="../static/style.css" th:href="@{/style.css}">
+</head>
+<body>
+<!--<th:block th:insert="~{_template :: menu}"/>-->
+<sec:authorize access="!isAuthenticated()">
+<th:block th:insert="~{_template :: menu1}"/>
+</sec:authorize>
+<sec:authorize access="!isAuthenticated()">
+<th:block th:insert="~{_template :: menu2}"/>
+</sec:authorize>
+<div>
+  	<table align=center border="2">
+    <thead>
+    <th>ID</th>
+    <th>UserName</th>
+    <th>Password</th>
+    </thead>
+		<tr th:each="user: ${allUsers}">
+			<td th:text="${user.id}">id</td>
+			<td th:text="${user.username}">name</td>
+			<td th:text="${user.password}">password</td>
+			<td class="btn">
+				<a th:text="' delete'" th:href="@{/admin/delete/{id}(id=${user.id})}"></a>
+			</td>
+		</tr>
+    </table>
+</div>
+</body>
+</html>

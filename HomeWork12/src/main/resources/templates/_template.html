@@ -1,0 +1,37 @@
+<html xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+
+<div id="menu1" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" xmlns:th="http://www.thymeleaf.org" th:fragment="menu1">
+
+	<div class="menuUp">
+		<a href='/'>First page</a>
+			| &nbsp;
+		<a href='/product'>Products</a>
+			| &nbsp;
+		<a href='/cart'>Cart</a>
+			| &nbsp;
+		<a href='/admin'>Users</a>
+			| &nbsp;
+		<a href='/logout'>Выйти</a>
+	</div>
+</div>
+
+
+<div id="menu2" xmlns:th="http://www.thymeleaf.org" th:fragment="menu2">
+
+	<div class="menuUp">
+		<a href='/login'>Вход</a>
+			| &nbsp;
+		<a href='/registration'>Регистрация</a>
+	</div>
+</div>
+
+<div id="header" xmlns:th="http://www.thymeleaf.org" th:fragment="header">
+    <div>
+        <h1 class="title" th:text="#{welcome.message (${user})}">Hello!</h1>
+    </div>
+</div>
+
+<div id="footer" xmlns:th="http://www.thymeleaf.org" th:fragment="footer">
+    <h4 class="title" th:text="#{time.message (${{date}})}">Время:</h4>
+</div>

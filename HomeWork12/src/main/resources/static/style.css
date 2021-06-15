@@ -1,7 +1,6 @@
 body {
     margin: 0;
     padding: 0;
-    background-color: blue;
 }
 
 .container {
@@ -45,18 +44,6 @@ body {
 
 }
 
-ul.horList {
-	text-align:center;
-    margin: 0;
-    padding: 4px;
-   }
-ul.horList li {
-    display: inline;
-    margin: 10px 7px;
-    padding: 3px;
-   }
-
-
 .btn a {
     text-decoration: none;
 }
@@ -67,14 +54,4 @@ ul.horList li {
 
 .form {
     margin-top: 2rem;
-}
-
-th {
-	text-align: center;
-}
-
-div.menuUp {
-	border: 1px solid #ccc;
-	padding:5px;
-	margin-bottom:20px;
 }
