@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>BeginPafe</title>
+	 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" type="text/css" href="../static/style.css" th:href="@{/style.css}">
+</head>
+<body>
+<!--<th:block th:insert="~{_template :: menu}"/>-->
+<sec:authorize access="!isAuthenticated()">
+<th:block th:insert="~{_template :: menu1}"/>
+</sec:authorize>
+<sec:authorize access="!isAuthenticated()">
+<th:block th:insert="~{_template :: menu2}"/>
+</sec:authorize>
+<sec:authorize access="!isAuthenticated()">
+  <% response.sendRedirect("/"); %>
+</sec:authorize>
+<div>
+    <h1 text-align="center">It's begin!</h1>
+</div>
+</body>
+</html>
